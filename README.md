@@ -21,3 +21,6 @@ $ go get ./...
 sign in and click import and Select **Restlet Client Repository** and browse for the [muve-go.json](https://github.com/lakshanwd/muve-go/blob/master/muve-go.json)
 
 There is the JWT authenticated golang api
+
+### database structure
+![db-structure](../master/db-structure.png)
