@@ -5,7 +5,7 @@
     {
       "type": "Project",
       "id": "5b0e45ac-91f0-434c-991f-2f656a9af522",
-      "lastModified": "2018-08-27T22:16:45.598+05:30",
+      "lastModified": "2018-08-27T22:34:29.884+05:30",
       "name": "muve"
     },
     {
@@ -107,13 +107,13 @@
         "path": "/booking"
       },
       "id": "758d927c-2e04-418d-a135-a2a198a9571e",
-      "lastModified": "2018-08-27T22:16:45.598+05:30",
+      "lastModified": "2018-08-27T22:33:52.497+05:30",
       "name": "Get Bookings",
       "headers": [
         {
           "enabled": true,
           "name": "Authorization",
-          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoic3VwdW4iLCJSb2xlIjoiYWRtaW4iLCJVc2VySUQiOjEwLCJleHAiOjE1MzUyNzI1ODAsImlhdCI6MTUzNTI3MjU2NSwiaXNzIjoiYXV0aF9zZXJ2ZXIiLCJuYmYiOjE1MzUyNzI1OTV9.lvNdcmtN8ioASKyICu-2jl_DNmrWQw2RsEOnlETS--U"
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYXRvciIsIlJvbGUiOiJhZG1pbiIsIlVzZXJJRCI6MSwiZXhwIjoxNTM1Mzg5NDI3LCJpYXQiOjE1MzUzODk0MTIsImlzcyI6ImF1dGhfc2VydmVyIiwibmJmIjoxNTM1Mzg5NDQyfQ.rSEGVUwCwhi7ecIb-khK5DfrBSawcc6sk1ajV59TxPo"
         }
       ],
       "metaInfo": {
@@ -152,13 +152,13 @@
         "path": "/booking"
       },
       "id": "b780143a-c416-4c15-9a4e-82b116cc4834",
-      "lastModified": "2018-08-27T22:08:07.924+05:30",
+      "lastModified": "2018-08-27T22:33:58.206+05:30",
       "name": "Save Booking",
       "headers": [
         {
           "enabled": true,
           "name": "Authorization",
-          "value": "dfdf"
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYXRvciIsIlJvbGUiOiJhZG1pbiIsIlVzZXJJRCI6MSwiZXhwIjoxNTM1Mzg5NDI3LCJpYXQiOjE1MzUzODk0MTIsImlzcyI6ImF1dGhfc2VydmVyIiwibmJmIjoxNTM1Mzg5NDQyfQ.rSEGVUwCwhi7ecIb-khK5DfrBSawcc6sk1ajV59TxPo"
         },
         {
           "enabled": true,
@@ -199,16 +199,21 @@
           "version": "V11"
         },
         "host": "ec2-54-206-123-216.ap-southeast-2.compute.amazonaws.com:8080",
-        "path": "/booking/100008"
+        "path": "/booking/100002"
       },
       "id": "13a19db5-5637-4540-a0d3-ba69e7c05945",
-      "lastModified": "2018-08-27T22:08:19.717+05:30",
+      "lastModified": "2018-08-27T22:34:10.408+05:30",
       "name": "Update Booking",
       "headers": [
         {
           "enabled": true,
           "name": "Content-Type",
           "value": "application/json"
+        },
+        {
+          "enabled": true,
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYXRvciIsIlJvbGUiOiJhZG1pbiIsIlVzZXJJRCI6MSwiZXhwIjoxNTM1Mzg5NDI3LCJpYXQiOjE1MzUzODk0MTIsImlzcyI6ImF1dGhfc2VydmVyIiwibmJmIjoxNTM1Mzg5NDQyfQ.rSEGVUwCwhi7ecIb-khK5DfrBSawcc6sk1ajV59TxPo"
         }
       ],
       "metaInfo": {
@@ -245,9 +250,15 @@
         "path": "/booking/100007"
       },
       "id": "9b7afee4-1675-4c3e-8a8b-db174d516842",
-      "lastModified": "2018-08-27T22:08:27.517+05:30",
+      "lastModified": "2018-08-27T22:34:29.885+05:30",
       "name": "Delete Booking",
-      "headers": [],
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYXRvciIsIlJvbGUiOiJhZG1pbiIsIlVzZXJJRCI6MSwiZXhwIjoxNTM1Mzg5NDI3LCJpYXQiOjE1MzUzODk0MTIsImlzcyI6ImF1dGhfc2VydmVyIiwibmJmIjoxNTM1Mzg5NDQyfQ.rSEGVUwCwhi7ecIb-khK5DfrBSawcc6sk1ajV59TxPo"
+        }
+      ],
       "metaInfo": {
         "ownerId": "google-oauth2|113500001065280782316"
       },
