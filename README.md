@@ -17,11 +17,13 @@ $ go get ./...
 * open a text editor and replace `developer:123` with your `<mysql-user>:<mysql-password>` and password in [db/db.go](https://github.com/lakshanwd/muve-go/blob/master/go-crud/db/db.go)
 * and finally `$ go run server.go`
 
+There is the JWT authenticated golang api
+
 ## testing
 * Open google chrome and install [Restlet](https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm), 
 sign in and click import and Select **Restlet Client Repository** and browse for the [muve-go.json](https://github.com/lakshanwd/muve-go/blob/master/muve-go.json)
 
-There is the JWT authenticated golang api
+
 
 ### database structure
 ![db-structure](../master/db-structure.png)
