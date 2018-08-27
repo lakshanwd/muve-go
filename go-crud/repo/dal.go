@@ -14,8 +14,10 @@ type Repo interface {
 	Remove(doc interface{}) (int64, error)
 }
 
+//delegate function for sql data read
 type delegate func(rows *sql.Rows, collection *list.List) error
 
+//executes @query and returns results in a list
 func executeReader(db *sql.DB, query string, fn delegate, params ...interface{}) (*list.List, error) {
 	rows, err := db.Query(query, params...)
 	if err != nil {
@@ -26,24 +28,32 @@ func executeReader(db *sql.DB, query string, fn delegate, params ...interface{})
 	data := list.New()
 	start := make(chan bool)
 	end := make(chan bool)
-	go func() {
-		<-start
-		for rows.Next() {
-			if err = fn(rows, data); err != nil {
-				log.Fatal(err)
+	readerCount := 1
+	for i := 0; i < readerCount; i++ {
+		go func() {
+			<-start
+			for rows.Next() {
+				if err = fn(rows, data); err != nil {
+					log.Fatal(err)
+				}
 			}
-		}
-		end <- true
-	}()
-	start <- true
-	<-end
-	err = rows.Err()
-	if err != nil {
+			end <- true
+		}()
+	}
+
+	for i := 0; i < readerCount; i++ {
+		start <- true
+	}
+	for i := 0; i < readerCount; i++ {
+		<-end
+	}
+	if err = rows.Err(); err != nil {
 		return nil, err
 	}
 	return data, err
 }
 
+//performs a insert operation and returns latest inserted id
 func executeInsert(db *sql.DB, query string, params ...interface{}) (int64, error) {
 	stmt, err := db.Prepare(query)
 	if err != nil {
@@ -57,6 +67,7 @@ func executeInsert(db *sql.DB, query string, params ...interface{}) (int64, erro
 	return result.LastInsertId()
 }
 
+//performs update and returns affected row count
 func executeUpdateDelete(db *sql.DB, query string, params ...interface{}) (int64, error) {
 	stmt, err := db.Prepare(query)
 	defer stmt.Close()
