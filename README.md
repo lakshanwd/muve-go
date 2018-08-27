@@ -7,13 +7,13 @@
 
 ## setup instructions
 * open terminal and execute following commands
-````
+```shell
 $ go get -u github.com/lakshanwd/muve-go
 $ cd $GOPATH/github.com/lakshanwd/muve-go
 $ mysql -u <mysql-user> -p < backup.sql
 $ cd go-crud
 $ go get ./...
-````
+```
 * open a text editor and replace `developer:123` with your `<mysql-user>:<mysql-password>` and password in [db/db.go](https://github.com/lakshanwd/muve-go/blob/master/go-crud/db/db.go)
 * and finally `$ go run server.go`
 
