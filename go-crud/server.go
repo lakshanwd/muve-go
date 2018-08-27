@@ -30,7 +30,7 @@ func main() {
 	}
 	config := cors.DefaultConfig()
 	config.AllowAllOrigins = true
-	config.AddAllowHeaders("Content-Type", "Autherization")
+	config.AddAllowHeaders("Content-Type", "Authorization")
 	router.Use(cors.New(config))
 	router.Run(":8080")
 }
