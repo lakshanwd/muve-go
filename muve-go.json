@@ -5,7 +5,7 @@
     {
       "type": "Project",
       "id": "5b0e45ac-91f0-434c-991f-2f656a9af522",
-      "lastModified": "2018-08-26T23:37:52.598+05:30",
+      "lastModified": "2018-08-27T22:16:45.598+05:30",
       "name": "muve"
     },
     {
@@ -49,11 +49,11 @@
           "name": "http",
           "version": "V11"
         },
-        "host": "localhost:8080",
+        "host": "ec2-54-206-123-216.ap-southeast-2.compute.amazonaws.com:8080",
         "path": "/authenticate"
       },
       "id": "b2cfaafc-9e2d-4739-a225-42672b0b0a34",
-      "lastModified": "2018-08-26T20:47:38.166+05:30",
+      "lastModified": "2018-08-27T22:07:14.723+05:30",
       "name": "Authentication",
       "headers": [
         {
@@ -95,7 +95,7 @@
             {
               "enabled": true,
               "name": "count",
-              "value": "100"
+              "value": "1000000"
             }
           ]
         },
@@ -103,11 +103,11 @@
           "name": "http",
           "version": "V11"
         },
-        "host": "localhost:8080",
+        "host": "ec2-54-206-123-216.ap-southeast-2.compute.amazonaws.com:8080",
         "path": "/booking"
       },
       "id": "758d927c-2e04-418d-a135-a2a198a9571e",
-      "lastModified": "2018-08-26T23:37:52.599+05:30",
+      "lastModified": "2018-08-27T22:16:45.598+05:30",
       "name": "Get Bookings",
       "headers": [
         {
@@ -148,11 +148,11 @@
           "name": "http",
           "version": "V11"
         },
-        "host": "localhost:8080",
+        "host": "ec2-54-206-123-216.ap-southeast-2.compute.amazonaws.com:8080",
         "path": "/booking"
       },
       "id": "b780143a-c416-4c15-9a4e-82b116cc4834",
-      "lastModified": "2018-08-26T01:19:09.629+05:30",
+      "lastModified": "2018-08-27T22:08:07.924+05:30",
       "name": "Save Booking",
       "headers": [
         {
@@ -198,11 +198,11 @@
           "name": "http",
           "version": "V11"
         },
-        "host": "localhost:8080",
+        "host": "ec2-54-206-123-216.ap-southeast-2.compute.amazonaws.com:8080",
         "path": "/booking/100008"
       },
       "id": "13a19db5-5637-4540-a0d3-ba69e7c05945",
-      "lastModified": "2018-08-26T12:44:29.353+05:30",
+      "lastModified": "2018-08-27T22:08:19.717+05:30",
       "name": "Update Booking",
       "headers": [
         {
@@ -241,11 +241,11 @@
           "name": "http",
           "version": "V11"
         },
-        "host": "localhost:8080",
+        "host": "ec2-54-206-123-216.ap-southeast-2.compute.amazonaws.com:8080",
         "path": "/booking/100007"
       },
       "id": "9b7afee4-1675-4c3e-8a8b-db174d516842",
-      "lastModified": "2018-08-26T12:32:55.345+05:30",
+      "lastModified": "2018-08-27T22:08:27.517+05:30",
       "name": "Delete Booking",
       "headers": [],
       "metaInfo": {
