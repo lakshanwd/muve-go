@@ -1,0 +1,6 @@
+{
+    "mysql-user": "developer",
+    "mysql-password": "123",
+    "db-name": "XYZ_lakshan_dissanayake",
+    "host": "localhost"
+  }
