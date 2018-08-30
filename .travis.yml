@@ -2,3 +2,9 @@ language: go
 
 go:
   - "1.10.x"
+  
+services:
+  - mysql
+  
+before_install:
+  - mv config.json go-crud/db/config.json
