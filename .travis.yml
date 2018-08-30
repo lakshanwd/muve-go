@@ -8,5 +8,5 @@ services:
   
 before_install:
   - cp go-crud/config.json go-crud/db/config.json
-  - sudo mysql -e < backup.sql
+  - sudo mysql < backup.sql
   - sudo mysql -e "use mysql; GRANT ALL PRIVILEGES ON *.* TO 'developer'@'localhost' IDENTIFIED BY '123';FLUSH PRIVILEGES;"
