@@ -3,7 +3,7 @@
 ## assumptions
 * you have go1.10.1 installed
 * you have correcly setup GOPATH variable
-* you have installed mysql and you have mysql user/password
+* you have installed mysql and you have mysql username/password
 
 ## setup instructions
 * open terminal and execute following commands
