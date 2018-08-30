@@ -7,4 +7,5 @@ services:
   - mysql
   
 before_install:
+  - ls
   - mv config.json go-crud/db/config.json
