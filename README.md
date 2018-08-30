@@ -14,7 +14,7 @@ $ mysql -u <mysql-user> -p < backup.sql
 $ cd go-crud
 $ go get ./...
 ```
-* open a text editor and replace `developer:123` with your `<mysql-user>:<mysql-password>` and password in [db/db.go](https://github.com/lakshanwd/muve-go/blob/master/go-crud/db/db.go)
+* open a text editor and configure sql credentials in [db/db.go](https://github.com/lakshanwd/muve-go/blob/master/go-crud/config.json)
 * and finally `$ go run server.go`
 
 There is the JWT authenticated golang api
