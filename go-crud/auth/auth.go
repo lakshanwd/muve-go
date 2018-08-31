@@ -16,24 +16,24 @@ func JWT() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		if authHeader, err := jwt.FromRequest(c.Request); err == nil {
 			if err = authHeader.Verify(signer); err == nil {
-				c.Next()
-			} else {
 				now := time.Now()
 				algValidator := jwt.AlgorithmValidator(jwt.MethodHS256)
 				expValidator := jwt.ExpirationTimeValidator(now)
 				if err = authHeader.Validate(algValidator, expValidator); err != nil {
 					switch err {
 					case jwt.ErrAlgorithmMismatch:
-						c.AbortWithError(http.StatusBadRequest, err)
+						c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"reason": "invalid algorythrm"})
 					case jwt.ErrTokenExpired:
-						c.AbortWithError(http.StatusUnauthorized, err)
+						c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"reason": "token expired"})
 					}
 				} else {
 					c.Next()
 				}
+			} else {
+				c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"reason": "invalid token"})
 			}
 		} else {
-			c.AbortWithStatus(http.StatusUnauthorized)
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"reason": "No authorize header"})
 		}
 	}
 }
@@ -44,8 +44,8 @@ func GetAuthToken(user *dao.User) (string, error) {
 	now := time.Now()
 	opt := &jwt.Options{
 		Timestamp:      true,
-		ExpirationTime: now.Add(15 * time.Second),
-		NotBefore:      now.Add(30 * time.Second),
+		ExpirationTime: now.Add(10 * time.Minute),
+		NotBefore:      now.Add(15 * time.Minute),
 		Issuer:         "auth_server",
 		Public:         map[string]interface{}{"Role": user.Role, "Name": user.Name, "UserID": user.UserID},
 	}
