@@ -16,7 +16,9 @@ func SetupRepo() {
 
 //CloseRepo - close database connections
 func CloseRepo() {
-	connection.Close()
+	if connection != nil {
+		connection.Close()
+	}
 }
 
 //Select - Read from database

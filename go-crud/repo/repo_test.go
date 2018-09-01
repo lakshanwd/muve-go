@@ -27,6 +27,8 @@ func TestAuthenticate(t *testing.T) {
 }
 
 func TestGetBookings(t *testing.T) {
+	SetupRepo()
+	defer CloseRepo()
 	cases := []struct {
 		from  int64
 		count int
