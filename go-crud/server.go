@@ -6,11 +6,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lakshanwd/muve-go/go-crud/auth"
 	"github.com/lakshanwd/muve-go/go-crud/handler"
+	"github.com/lakshanwd/muve-go/go-crud/repo"
 )
 
 func main() {
 	gin.SetMode(gin.ReleaseMode)
-
+	repo.SetupRepo()
+	defer repo.CloseRepo()
 	//setup auth
 	auth.InitAuth()
 
