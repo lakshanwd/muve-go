@@ -24,28 +24,11 @@ func executeReader(db *sql.DB, query string, fn delegate, params ...interface{})
 		return nil, err
 	}
 	defer rows.Close()
-
 	data := list.New()
-	start := make(chan bool)
-	end := make(chan bool)
-	readerCount := 1
-	for i := 0; i < readerCount; i++ {
-		go func() {
-			<-start
-			for rows.Next() {
-				if err = fn(rows, data); err != nil {
-					log.Fatal(err)
-				}
-			}
-			end <- true
-		}()
-	}
-
-	for i := 0; i < readerCount; i++ {
-		start <- true
-	}
-	for i := 0; i < readerCount; i++ {
-		<-end
+	for rows.Next() {
+		if err = fn(rows, data); err != nil {
+			log.Fatal(err)
+		}
 	}
 	if err = rows.Err(); err != nil {
 		return nil, err
