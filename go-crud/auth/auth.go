@@ -80,7 +80,7 @@ func GetAuthToken(user *dao.User) (token string, err error) {
 			Subject:        "developer",
 			Audience:       "muve",
 			ExpirationTime: now.Add(30 * time.Minute).Unix(),
-			NotBefore:      now.Add(10 * time.Minute).Unix(),
+			NotBefore:      now.Add(3 * time.Second).Unix(),
 			IssuedAt:       now.Unix(),
 			ID:             "unique-id",
 		},
