@@ -55,6 +55,8 @@ func JWT() gin.HandlerFunc {
 						case jwt.ErrSubValidation:
 							c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"reason": "subject validation failed"})
 						}
+					} else {
+						c.Next()
 					}
 				} else {
 					c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"reason": "verification failed"})
