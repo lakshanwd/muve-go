@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
@@ -11,7 +13,9 @@ import (
 
 func main() {
 	gin.SetMode(gin.ReleaseMode)
-	repo.SetupRepo()
+	if err := repo.SetupRepo(); err != nil {
+		log.Fatal(err)
+	}
 	defer repo.CloseRepo()
 	//setup auth
 	auth.InitAuth()

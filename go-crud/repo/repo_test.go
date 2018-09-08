@@ -1,6 +1,7 @@
 package repo
 
 import (
+	"log"
 	"testing"
 
 	"github.com/lakshanwd/muve-go/go-crud/dao"
@@ -27,7 +28,9 @@ func TestAuthenticate(t *testing.T) {
 }
 
 func TestGetBookings(t *testing.T) {
-	SetupRepo()
+	if err := SetupRepo(); err != nil {
+		log.Fatal(err)
+	}
 	defer CloseRepo()
 	cases := []struct {
 		from  int64

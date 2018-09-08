@@ -10,8 +10,9 @@ import (
 var connection *sql.DB
 
 //SetupRepo - setup database connections
-func SetupRepo() {
-	connection, _ = db.GetDatabase()
+func SetupRepo() (err error) {
+	connection, err = db.GetDatabase()
+	return
 }
 
 //CloseRepo - close database connections
