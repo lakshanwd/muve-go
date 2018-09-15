@@ -1,0 +1,26 @@
+version: '3.1'
+services:  
+  web:
+    container_name: muve-web
+    build:
+      context: .
+      dockerfile: app.Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - muve-network
+  
+  db:
+    container_name: muve-db
+    build:
+      context: .
+      dockerfile: sql-server.Dockerfile
+    ports:
+      - 3307:3306
+    networks:
+      - muve-network
+    hostname: muve-db
+
+networks:
+  muve-network:
+      driver: bridge
