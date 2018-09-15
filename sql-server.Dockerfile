@@ -1,6 +1,6 @@
 FROM mysql:latest
 
-COPY backup.sql backup.sql
+COPY backup.sql.gz /docker-entrypoint-initdb.d/backup.sql.gz
 
 ENV MYSQL_ROOT_PASSWORD=123
 ENV MYSQL_USER=developer

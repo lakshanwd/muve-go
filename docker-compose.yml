@@ -5,22 +5,20 @@ services:
     build:
       context: .
       dockerfile: app.Dockerfile
+    restart: always
     ports:
       - 8080:8080
-    networks:
-      - muve-network
+    depends_on:
+      - db
+    links:
+      - db
   
   db:
     container_name: muve-db
+    restart: always
     build:
       context: .
       dockerfile: sql-server.Dockerfile
     ports:
       - 3307:3306
-    networks:
-      - muve-network
     hostname: muve-db
-
-networks:
-  muve-network:
-      driver: bridge
