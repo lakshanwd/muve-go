@@ -12,7 +12,7 @@ $ go get -u github.com/lakshanwd/muve-go
 $ cd $GOPATH/github.com/lakshanwd/muve-go
 $ mysql -u <mysql-user> -p < backup.sql
 $ cd go-crud
-$ go get ./...
+$ go get -v ./...
 ```
 * open a text editor and configure sql credentials in [config.json][config.json]
 * and finally `$ go run server.go`
@@ -31,3 +31,8 @@ sign in and click import and Select **Restlet Client Repository** and browse for
 [restlet]: https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm "Restlet client"
 [config.json]: https://github.com/lakshanwd/muve-go/blob/master/go-crud/config.json "config.json"
 [muve-go.json]: https://github.com/lakshanwd/muve-go/blob/master/muve-go.json "muve-go.json"
+
+### docker
+* install docker-ce
+* install docker-compose
+* run `$ docker-compose -f muve-go/docker-compose.yml up -d --build`

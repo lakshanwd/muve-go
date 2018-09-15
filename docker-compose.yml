@@ -15,7 +15,6 @@ services:
   
   db:
     container_name: muve-db
-    restart: always
     build:
       context: .
       dockerfile: sql-server.Dockerfile
