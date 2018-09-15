@@ -13,7 +13,7 @@ RUN go get -d -v ./...
 
 RUN go install -v ./...
 
-COPY go-crud/config.json ./config.json
+COPY go-crud/config.docker.json ./config.json
 
 CMD ["app"]
 
