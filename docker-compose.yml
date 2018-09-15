@@ -2,6 +2,8 @@ version: '3.1'
 services:  
   web:
     container_name: muve-web
+    networks:
+      - default-network
     build:
       context: .
       dockerfile: app.Dockerfile
@@ -15,6 +17,8 @@ services:
   
   db:
     container_name: muve-db
+    networks:
+      - default-network
     build:
       context: .
       dockerfile: sql-server.Dockerfile
@@ -26,3 +30,6 @@ services:
 
 volumes:
   db-data:
+
+networks: 
+  default-network:
