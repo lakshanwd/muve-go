@@ -21,3 +21,8 @@ services:
     ports:
       - 3307:3306
     hostname: muve-db
+    volumes:
+      - "db-data:/var/lib/mysql"
+
+volumes:
+  db-data:
