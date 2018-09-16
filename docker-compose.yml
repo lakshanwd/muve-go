@@ -22,9 +22,13 @@ services:
     build:
       context: .
       dockerfile: sql-server.Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: library
+      MYSQL_USER: XYZ_lakshan_dissanayake
+      MYSQL_PASSWORD: 123
     ports:
       - 3307:3306
-    hostname: muve-db
     volumes:
       - "db-data:/var/lib/mysql"
 
