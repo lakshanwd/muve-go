@@ -4,6 +4,7 @@ import (
 	"container/list"
 	"database/sql"
 
+	util "github.com/lakshanwd/db-helper/mysql"
 	"github.com/lakshanwd/muve-go/go-crud/db"
 )
 
@@ -23,16 +24,16 @@ func CloseRepo() {
 }
 
 //Select - Read from database
-func Select(query string, fn delegate, params ...interface{}) (*list.List, error) {
-	return executeReader(connection, query, fn, params...)
+func Select(query string, fn util.Delegate, params ...interface{}) (*list.List, error) {
+	return util.ExecuteReader(connection, query, fn, params...)
 }
 
 //Insert - Insert into database
 func Insert(query string, params ...interface{}) (int64, error) {
-	return executeInsert(connection, query, params...)
+	return util.ExecuteInsert(connection, query, params...)
 }
 
 //UpdateDelete - Updates or Delete from database
 func UpdateDelete(query string, params ...interface{}) (int64, error) {
-	return executeUpdateDelete(connection, query, params...)
+	return util.ExecuteUpdateDelete(connection, query, params...)
 }

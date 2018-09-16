@@ -4,6 +4,7 @@ import (
 	"container/list"
 	"database/sql"
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/lakshanwd/muve-go/go-crud/dao"
@@ -12,7 +13,7 @@ import (
 //GetBookings - get bookings with pagination
 func GetBookings(from int64, count int) (*list.List, error) {
 	query := "select tb.booking_id, tb.pick_up_address, tb.drop_address, tb.total_distance, tb.created_on, tdv.vehicle_no, td.driver_name, tp.name, tp.phone, if (isnull(tf.bill_amount),0,tf.bill_amount) as bill_amount from tbl_booking as tb INNER JOIN tbl_driver_vehicle as tdv on tdv.vehicle_id=tb.vehicle_id INNER JOIN tbl_driver as td on td.driver_id=tdv.driver_id INNER JOIN tbl_passenger as tp on tp.passenger_id=tb.passenger_id LEFT JOIN tbl_fare as tf ON tf.fare_id=tb.fare_id WHERE status=1 order by tb.booking_id limit ?,?"
-	readerFn := func(rows *sql.Rows, collection *list.List) error {
+	readerFn := func(rows *sql.Rows, collection *list.List) {
 		var booking dao.Booking
 		var vehicle dao.DriverVehicle
 		var driver dao.Driver
@@ -26,8 +27,9 @@ func GetBookings(from int64, count int) (*list.List, error) {
 			booking.Fare = &fare
 			booking.Passenger = &passenger
 			collection.PushBack(booking)
+		} else {
+			log.Fatal(err)
 		}
-		return err
 	}
 	return Select(query, readerFn, from, count)
 }
@@ -49,7 +51,7 @@ func InsertBooking(booking *dao.Booking) (int64, error) {
 //GetBooking - get single booking
 func GetBooking(id int64) (*list.List, error) {
 	query := "select tb.booking_id, tb.pick_up_address, tb.drop_address, tb.total_distance, tb.created_on, tdv.vehicle_no, td.driver_name, tp.name, tp.phone, if(isnull(tf.bill_amount),0,tf.bill_amount) as bill_amount from tbl_booking as tb INNER JOIN tbl_driver_vehicle as tdv on tdv.vehicle_id=tb.vehicle_id INNER JOIN tbl_driver as td on td.driver_id=tdv.driver_id INNER JOIN tbl_passenger as tp on tp.passenger_id=tb.passenger_id LEFT JOIN tbl_fare as tf ON tf.fare_id=tb.fare_id where tb.booking_id = ? and status=1"
-	readerFn := func(rows *sql.Rows, collection *list.List) error {
+	readerFn := func(rows *sql.Rows, collection *list.List) {
 		var booking dao.Booking
 		var vehicle dao.DriverVehicle
 		var driver dao.Driver
@@ -63,8 +65,9 @@ func GetBooking(id int64) (*list.List, error) {
 			booking.Fare = &fare
 			booking.Passenger = &passenger
 			collection.PushBack(booking)
+		} else {
+			log.Fatal(err)
 		}
-		return err
 	}
 	return Select(query, readerFn, id)
 }
