@@ -1,7 +1,6 @@
 version: '3.1'
 services:  
   web:
-    container_name: muve-web
     networks:
       - default-network
     build:
@@ -26,8 +25,8 @@ services:
       dockerfile: sql-server.Dockerfile
     environment:
       MYSQL_ROOT_PASSWORD: 123
-      MYSQL_DATABASE: library
-      MYSQL_USER: XYZ_lakshan_dissanayake
+      MYSQL_DATABASE: XYZ_lakshan_dissanayake
+      MYSQL_USER: developer
       MYSQL_PASSWORD: 123
     ports:
       - 3307:3306

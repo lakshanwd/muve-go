@@ -26,13 +26,13 @@ sign in and click import and Select **Restlet Client Repository** and browse for
 ### database structure
 ![alt text][db_structure]
 
+### docker
+* install docker-ce
+* install docker-compose
+* run `$ docker-compose -f muve-go/docker-compose.yml up -d`
+
 [build_status]: https://travis-ci.org/lakshanwd/muve-go.svg?branch=master "Travis Build Status"
 [db_structure]: ../master/db-structure.png "Database Structure"
 [restlet]: https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm "Restlet client"
 [config.json]: https://github.com/lakshanwd/muve-go/blob/master/go-crud/config.json "config.json"
 [muve-go.json]: https://github.com/lakshanwd/muve-go/blob/master/muve-go.json "muve-go.json"
-
-### docker
-* install docker-ce
-* install docker-compose
-* run `$ docker-compose -f muve-go/docker-compose.yml up -d --build`
